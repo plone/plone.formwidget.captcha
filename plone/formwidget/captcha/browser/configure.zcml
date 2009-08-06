@@ -1,0 +1,19 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    i18n_domain="collective.captcha">
+    
+  <browser:view
+      name="captcha"
+      for="*"
+      permission="zope2.Public"
+      provides=".interfaces.ICaptchaView"
+      class=".captcha.Captcha"
+      >
+    
+    <browser:page name="image" attribute="image" />
+    <browser:page name="audio" attribute="audio" />
+  
+  </browser:view>
+
+</configure>

@@ -1,0 +1,206 @@
+========
+Captchas
+========
+
+Generation
+----------
+
+To use the captcha view, simply look up the view using the component architecture.
+
+Here, we'll just import the view directly to demonstrate it's use:
+
+  >>> from collective.captcha.browser.captcha import Captcha, COOKIE_ID
+  >>> request = DummyRequest()
+  >>> context = DummyContext()
+  >>> view = Captcha(context, request)
+
+We can now use the view to generate an image tag, and a audio_url:
+
+  >>> view.image_tag()
+  '<img src="dummyurl/@@captcha/image" />'
+  >>> view.audio_url()
+  'dummyurl/@@captcha/audio'
+
+The request now holds the state in a cookie:
+
+  >>> COOKIE_ID in request.response.cookies
+  True
+  
+Verification
+------------
+
+With that state, we can verify that the user has given us the correct word. The view
+doesn't actually give us the word, but we can replay an existing session for the test:
+
+  >>> request = DummyRequest()
+  >>> request.cookies[COOKIE_ID] = '6552fec8867ee2a85a44784dda007e49efcf50ef'
+  >>> view = Captcha(context, request)
+
+The verify method, then, tells you if the user entered the correct word:
+
+  >>> view.verify('DLXV4XV')
+  True
+  
+Note that the view immediately invalidates the cookie by expiring it:
+
+  >>> request.response.cookies[COOKIE_ID].get('expires', '')
+  'Wed, 31-Dec-97 23:59:59 GMT'
+  
+The verify method works case-insensitively:
+
+  >>> view.verify('dlxv4xv')
+  True
+  
+The words are valid for a 10 minute period, with a new word for the session every
+5 minutes. Thus, the word for the previous 5 minute period should still be valid:
+
+  >>> view.verify('YMFRQWT')
+  True
+  
+Verification will fail for both incorrect input and a missing cookie:
+
+  >>> view.verify('incorrect')
+  False
+
+  >>> del request.other[COOKIE_ID]
+  >>> del request.cookies[COOKIE_ID]
+  >>> view.verify('DLXV4XV')
+  False
+
+To facilitate displaying a new captcha when verification fails or validation 
+of a form fails for other reasons, the view makes sure to not expire the 
+cookie but to set a new value instead:
+
+  >>> request = DummyRequest()
+  >>> request.response.setCookie(COOKIE_ID, '6552fec8867ee2a85a44784dda007e49efcf50ef')
+  >>> view = Captcha(context, request)
+
+  >>> request.response.cookies[COOKIE_ID].get('value', '') == '6552fec8867ee2a85a44784dda007e49efcf50ef'
+  True
+
+  >>> view.audio_url()
+  'dummyurl/@@captcha/audio'
+
+  >>> request.response.cookies[COOKIE_ID].get('expires', False)
+  False
+  >>> request.response.cookies[COOKIE_ID].get('value', '') == '6552fec8867ee2a85a44784dda007e49efcf50ef'
+  False
+
+Displaying
+----------
+
+The point of course is that the end-user gets to view the captcha image or listen to the 
+audio file:
+
+  >>> request = DummyRequest()
+  >>> request.cookies[COOKIE_ID] = '6552fec8867ee2a85a44784dda007e49efcf50ef'
+  >>> view = Captcha(context, request)
+
+  >>> image = view.image()
+  >>> image.startswith('\x89PNG')
+  True
+  >>> request.response.headers['content-type']
+  'image/png'
+
+  >>> audio = view.audio()
+  >>> audio.startswith('RIFF')
+  True
+  >>> request.response.headers['content-type']
+  'audio/wav'
+
+Bugs
+----
+
+view.image() and view.audio() raise exceptions if there is no cookie
+
+  >>> request = DummyRequest()
+  >>> view = Captcha(context, request)
+
+  >>> view._session_id is None
+  True
+
+  >>> COOKIE_ID in request
+  False
+
+  >>> COOKIE_ID in request.response.cookies
+  False
+
+  >>> image = view.image()
+  >>> image.startswith('\x89PNG')
+  True
+  >>> request.response.headers['content-type']
+  'image/png'
+
+After the fix, we get a new session id and cookie instead
+
+  >>> view._session_id is None
+  False
+
+  >>> COOKIE_ID in request
+  True
+
+  >>> COOKIE_ID in request.response.cookies
+  True
+
+Same for audio
+
+  >>> request = DummyRequest()
+  >>> view = Captcha(context, request)
+
+  >>> audio = view.audio()
+  >>> audio.startswith('RIFF')
+  True
+  >>> request.response.headers['content-type']
+  'audio/wav'
+
+  >>> view._session_id is None
+  False
+
+  >>> COOKIE_ID in request
+  True
+
+  >>> COOKIE_ID in request.response.cookies
+  True
+
+Now execute the "impossible" branch, session_id without cookie:
+
+  >>> request = DummyRequest()
+  >>> view = Captcha(context, request)
+  >>> view._session_id = 'foo'
+
+  >>> image = view.image()
+  >>> image.startswith('\x89PNG')
+  True
+  >>> request.response.headers['content-type']
+  'image/png'
+
+  >>> view._session_id
+  'foo'
+
+  >>> COOKIE_ID in request
+  True
+
+  >>> COOKIE_ID in request.response.cookies
+  True
+
+Same for audio
+
+  >>> request = DummyRequest()
+  >>> view = Captcha(context, request)
+  >>> view._session_id = 'foo'
+
+  >>> audio = view.audio()
+  >>> audio.startswith('RIFF')
+  True
+  >>> request.response.headers['content-type']
+  'audio/wav'
+
+  >>> view._session_id
+  'foo'
+
+  >>> COOKIE_ID in request
+  True
+
+  >>> COOKIE_ID in request.response.cookies
+  True
+
