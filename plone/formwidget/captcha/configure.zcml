@@ -10,48 +10,35 @@
 
     <include package=".browser" />
 
-  <class class=".widget.CaptchaWidget">
-    <require
-        permission="zope.Public"
-        interface="plone.formwidget.captcha.interfaces.ICaptchaWidget"
+    <class class=".widget.CaptchaWidget">
+        <require
+            permission="zope.Public"
+            interface="plone.formwidget.captcha.interfaces.ICaptchaWidget"
         />
-  </class>
+    </class>
 
-  <!-- this widget is not configured for any field by default -->
-  <z3c:widgetTemplate
-      mode="display"
-      widget="plone.formwidget.captcha.interfaces.ICaptchaWidget"
-      layer="z3c.form.interfaces.IFormLayer"
-      template="widget.pt"
-      />
+    <!-- this widget is not configured for any field by default -->
+    <z3c:widgetTemplate
+        mode="display"
+        widget="plone.formwidget.captcha.interfaces.ICaptchaWidget"
+        layer="z3c.form.interfaces.IFormLayer"
+        template="widget.pt"
+        />
 
-  <z3c:widgetTemplate
-      mode="input"
-      widget="plone.formwidget.captcha.interfaces.ICaptchaWidget"
-      layer="z3c.form.interfaces.IFormLayer"
-      template="captcha_input.pt"
-      />
+    <z3c:widgetTemplate
+        mode="input"
+        widget="plone.formwidget.captcha.interfaces.ICaptchaWidget"
+        layer="z3c.form.interfaces.IFormLayer"
+        template="captcha_input.pt"
+        />
 
-        <!--
-    <browser:page
-        name="autocomplete-search"
-        for=".interfaces.IAutocompleteWidget"
-        permission="zope.Public"
-        class=".widget.AutocompleteSearch"
-        />-->
-
-    <!--<browser:resourceDirectory
-        name="plone.formwidget.autocomplete"
-        directory="jquery-autocomplete"
-        />-->
-<!--
     <gs:registerProfile
         name="default"
         title="Captcha widget"
         directory="profiles/default"
         for="Products.CMFPlone.interfaces.IPloneSiteRoot"
         provides="Products.GenericSetup.interfaces.EXTENSION"
-        />-->
+        />
 
     <!-- Demo view for testing -->
     <!-- <include file="demo.zcml" /> -->
