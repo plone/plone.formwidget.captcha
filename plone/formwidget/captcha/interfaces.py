@@ -1,5 +1,5 @@
-from zope.interface import Interface
+from z3c.form import interfaces
 
-class ICaptchaWidget(Interface):
+class ICaptchaWidget(interfaces.IWidget):
     """Marker interface for the captcha widget
     """
