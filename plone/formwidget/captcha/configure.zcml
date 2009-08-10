@@ -40,7 +40,11 @@
         provides="Products.GenericSetup.interfaces.EXTENSION"
         />
 
-    <!-- Demo view for testing -->
-    <!-- <include file="demo.zcml" /> -->
+    <!--
+    example:
+    http://yourplonesite/@@captcha_form
+    -->
+
+    <include package=".demo" />
 
 </configure>
