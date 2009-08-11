@@ -30,9 +30,9 @@ def test_suite():
     return unittest.TestSuite([
 
         # Unit tests
-        #doctestunit.DocFileSuite(
-        #    'README.txt', package='plone.formwidget.captcha',
-        #    setUp=testing.setUp, tearDown=testing.tearDown),
+        doctestunit.DocFileSuite(
+            'README.txt', package='plone.formwidget.captcha',
+            setUp=testing.setUp, tearDown=testing.tearDown),
 
         #doctestunit.DocTestSuite(
         #    module='plone.formwidget.captcha.mymodule',
