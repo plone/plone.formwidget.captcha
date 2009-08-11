@@ -4,7 +4,7 @@ from zope.testing import doctest, cleanup
 from plone.keyring.interfaces import IKeyManager
 
 # Set the secret and test time to constants to keep the tests workable
-import collective.captcha.browser.captcha as captcha
+import plone.formwidget.captcha.browser.captcha as captcha
 captcha._TEST_TIME = 5
 
 # Use a real Request and Response; there are too many subtleties
@@ -17,7 +17,7 @@ class DummyRequest(Request):
                'SERVER_PORT': '80',
                'REQUEST_METHOD': 'GET'}
         Request.__init__(self, None, env, Response())
-        
+
 class DummyContext(object):
     def absolute_url(self):
         return 'dummyurl'
