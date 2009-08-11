@@ -1,5 +1,5 @@
 from zope.i18nmessageid import MessageFactory
-MessageFactory = MessageFactory('plone.formwidget.captcha')
+CaptchaMessageFactory = MessageFactory('plone.formwidget.captcha')
 
 from plone.formwidget.captcha.widget import CaptchaWidget
 from plone.formwidget.captcha.widget import CaptchaFieldWidget
