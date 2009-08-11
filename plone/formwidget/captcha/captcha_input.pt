@@ -4,4 +4,4 @@
   <a href="" target="_blank"
     tal:attributes="href view/captchaAudio">Listen to audio for this captcha</a>
 </div>
-<input id="form-widgets-captcha" class="text-widget textline-field" type="text" value="" name="form.widgets.captcha"/>
+<input id="form-widgets-captcha" class="text-widget required textline-field" type="text" value="" name="form.widgets.captcha"/>
