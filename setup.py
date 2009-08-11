@@ -26,18 +26,11 @@ setup(name='plone.formwidget.captcha',
       install_requires=[
           'setuptools',
           # -*- Extra requirements: -*-
-          'plone.z3cform',
           'skimpyGimpy',
-          'plone.keyring > 1.0',
+          'plone.keyring',
+          'plone.z3cform',
       ],
       entry_points="""
       # -*- Entry points: -*-
-
-      [distutils.setup_keywords]
-      paster_plugins = setuptools.dist:assert_string_list
-
-      [egg_info.writers]
-      paster_plugins.txt = setuptools.command.egg_info:write_arg
       """,
-      paster_plugins = ["ZopeSkel"],
       )
