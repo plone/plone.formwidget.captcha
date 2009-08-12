@@ -24,7 +24,3 @@ class CaptchaValidator(validator.SimpleFieldValidator):
             else:
                 return True
         raise WrongCaptchaCode
-
-from plone.formwidget.captcha.demo.form import ICaptchaForm
-validator.WidgetValidatorDiscriminators(CaptchaValidator, field=ICaptchaForm['captcha'])
-provideAdapter(CaptchaValidator)

@@ -14,4 +14,9 @@
         provides=".form.ICaptchaForm"
         factory=".form.Captcha" />
 
+    <!-- Validators -->
+    <adapter
+        factory=".form.CaptchaValidator"
+        />
+
 </configure>

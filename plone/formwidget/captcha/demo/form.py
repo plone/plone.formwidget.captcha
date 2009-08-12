@@ -2,9 +2,10 @@ from Acquisition import aq_inner
 
 from zope import interface
 from zope import schema
-from zope.component import getMultiAdapter
 
-from z3c.form import form, field, button
+from zope.component import getMultiAdapter, provideAdapter
+
+from z3c.form import form, field, button, validator
 
 from plone.z3cform.layout import wrap_form
 
@@ -44,3 +45,6 @@ class BaseForm(form.Form):
         return
 
 CaptchaForm = wrap_form(BaseForm)
+
+# Register Captcha Validator for the captcha field in the ICaptchaForm
+validator.WidgetValidatorDiscriminators(CaptchaValidator, field=ICaptchaForm['captcha'])

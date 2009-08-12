@@ -40,11 +40,6 @@
         provides="Products.GenericSetup.interfaces.EXTENSION"
         />
 
-    <!-- Validators -->
-    <adapter
-        factory=".validator.CaptchaValidator"
-        />
-
     <!--
     example:
     http://yourplonesite/@@captcha_form
