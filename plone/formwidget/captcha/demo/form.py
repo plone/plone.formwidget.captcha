@@ -46,5 +46,5 @@ class BaseForm(form.Form):
 
 CaptchaForm = wrap_form(BaseForm)
 
-# Register Captcha Validator for the captcha field in the ICaptchaForm
+# Register Captcha validator for the captcha field in the ICaptchaForm
 validator.WidgetValidatorDiscriminators(CaptchaValidator, field=ICaptchaForm['captcha'])

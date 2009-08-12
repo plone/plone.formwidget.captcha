@@ -3,18 +3,20 @@
     xmlns:browser="http://namespaces.zope.org/browser"
     i18n_domain="plone.formwidget.captcha">
 
+    <!-- Captcha form -->
     <browser:page
         name="captcha_form"
         for="Products.CMFPlone.interfaces.siteroot.IPloneSiteRoot"
         class=".form.CaptchaForm"
         permission = "zope.Public" />
 
+    <!-- Captcha factory -->
     <adapter
         for="Products.CMFPlone.interfaces.siteroot.IPloneSiteRoot"
         provides=".form.ICaptchaForm"
         factory=".form.Captcha" />
 
-    <!-- Validators -->
+    <!-- Captcha validator -->
     <adapter
         factory=".form.CaptchaValidator"
         />
