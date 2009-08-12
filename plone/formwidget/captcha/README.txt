@@ -89,9 +89,4 @@ Simulates traversal:
     >>> form_view = getMultiAdapter((context, request), name=u"captcha-form").__of__(context)
     >>> form_view.__name__ = 'captcha-form'
 
-Simulates partial rendering:
-
-    >>> form = form_view.form_instance
-    >>> form.__name__ = 'captcha-form'
-    >>> form.update()
-    >>> print form.widgets['captcha'].render() # doctest: +ELLIPSIS +NORMALIZE_WHITESPACE
+Todo
