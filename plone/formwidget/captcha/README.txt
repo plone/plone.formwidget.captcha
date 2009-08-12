@@ -64,3 +64,34 @@ First, set up a simple test form and context.
     ...                provides=Interface,
     ...                factory=form_view,
     ...                name=u"captcha-form")
+
+    >>> from OFS.SimpleItem import SimpleItem
+    >>> class Bar(SimpleItem):
+    ...     __allow_access_to_unprotected_subobjects__ = 1
+    ...     implements(ICaptchaForm)
+    ...
+    ...     def __init__(self, id):
+    ...         self.id = id
+    ...         self.subject = u""
+    ...         self.captcha = u""
+
+Let us now look up the form and attempt to render the widget.
+
+    >>> from zope.component import getMultiAdapter
+    >>> from OFS.Application import Application
+    >>> app = Application()
+    >>> app.REQUEST = make_request('/') # eeeevil
+    >>> context = Bar('bar').__of__(app)
+
+Simulates traversal:
+
+    >>> request = make_request('bar/@@captcha-form')
+    >>> form_view = getMultiAdapter((context, request), name=u"captcha-form").__of__(context)
+    >>> form_view.__name__ = 'captcha-form'
+
+Simulates partial rendering:
+
+    >>> form = form_view.form_instance
+    >>> form.__name__ = 'captcha-form'
+    >>> form.update()
+    >>> print form.widgets['captcha'].render() # doctest: +ELLIPSIS +NORMALIZE_WHITESPACE
