@@ -45,6 +45,6 @@
     http://yourplonesite/@@captcha_form
     -->
 
-    <include package=".demo" />
+    <!--<include package=".demo" />-->
 
 </configure>
