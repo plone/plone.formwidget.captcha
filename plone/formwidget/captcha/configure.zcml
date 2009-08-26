@@ -35,6 +35,7 @@
     <gs:registerProfile
         name="default"
         title="Captcha widget"
+        description="z3c.form Captcha widget."
         directory="profiles/default"
         for="Products.CMFPlone.interfaces.IPloneSiteRoot"
         provides="Products.GenericSetup.interfaces.EXTENSION"
