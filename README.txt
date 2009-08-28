@@ -1,7 +1,7 @@
 Introduction
 ============
 
-plone.formwidget.captcha is a z3c.form widget for use with Plone. It is
+plone.formwidget.captcha is a z3c.form captcha widget for use with Plone. It is
 a z3c.form re-implementation of the `collective.captcha` package written by
 Martijn Pieters.
 
