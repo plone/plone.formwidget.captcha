@@ -1,0 +1,14 @@
+Changelog
+=========
+
+1.0a2 - unreleased
+------------------
+
+* Updated package metadata and marked this as a Plone add-on.
+  [hannosch]
+
+1.0a1 - 2009-08-28
+------------------
+
+* Initial release
+  [timo]
