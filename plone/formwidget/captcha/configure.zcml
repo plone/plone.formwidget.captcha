@@ -1,9 +1,10 @@
 <configure
     xmlns="http://namespaces.zope.org/zope"
-    xmlns:z3c="http://namespaces.zope.org/z3c"
-    xmlns:five="http://namespaces.zope.org/five"
     xmlns:browser="http://namespaces.zope.org/browser"
+    xmlns:five="http://namespaces.zope.org/five"
+    xmlns:meta="http://namespaces.zope.org/meta"    
     xmlns:gs="http://namespaces.zope.org/genericsetup"
+    xmlns:z3c="http://namespaces.zope.org/z3c"
     i18n_domain="plone.formwidget.captcha">
 
     <include package="plone.z3cform" />
@@ -40,6 +41,11 @@
         for="Products.CMFPlone.interfaces.IPloneSiteRoot"
         provides="Products.GenericSetup.interfaces.EXTENSION"
         />
+
+    <!-- Declare that plone.formwidget.captcha provides a Captcha field that 
+         can be used by plone.app.discussion to add a Captcha field to comment 
+         forms. -->
+    <meta:provides feature="plone.app.discussion-captcha" />
 
     <!--
     example:

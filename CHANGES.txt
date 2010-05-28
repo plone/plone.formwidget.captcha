@@ -4,7 +4,10 @@ Changelog
 1.0a3 - unreleased
 ------------------
 
-
+* Declare that plone.formwidget.captcha provides a Captcha field that can be 
+  used by plone.app.discussion to add a Captcha field to comment forms.
+  [timo] 
+         
 1.0a2 - 2010-01-28
 ------------------
 
