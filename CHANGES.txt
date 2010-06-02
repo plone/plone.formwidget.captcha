@@ -1,7 +1,7 @@
 Changelog
 =========
 
-1.0a3 - unreleased
+1.0b1 - 2010-06-02
 ------------------
 
 * Declare that plone.formwidget.captcha provides a Captcha field that can be 
