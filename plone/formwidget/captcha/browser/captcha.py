@@ -74,9 +74,13 @@ class Captcha(BrowserView):
         """
         session = self.request[COOKIE_ID]
         nowish = _TEST_TIME or int(time.time() / 300)
+        # The line above defines nowish, which tells us what five minutes slot 
+        # we're in. Indeed, every second, int(time.time()) increments by 1, so
+        # int(time.time() / 300) will increment by 1 every 5 minutes.
         secret = getUtility(IKeyManager).secret()
         seeds = [sha.new(secret + session + str(nowish)).digest(),
-                 sha.new(secret + session + str(nowish - 5)).digest()]
+                 sha.new(secret + session + str(nowish - 1)).digest()]
+        # The line above generates a seed based on the "nowish" of 5 minutes ago.
         
         words = []
         for seed in seeds:

@@ -4,9 +4,14 @@ Changelog
 1.0b1 - 2010-06-02
 ------------------
 
+* Fix _generate_words method. The "nowish" variable tells us in which 5 minutes 
+  slot we are in. Therefore we increment the time slot by 1, not by 5 (minutes).  
+  [tbesluau]
+
 * Declare that plone.formwidget.captcha provides a Captcha field that can be 
   used by plone.app.discussion to add a Captcha field to comment forms.
-  [timo] 
+  [timo]
+
          
 1.0a2 - 2010-01-28
 ------------------
