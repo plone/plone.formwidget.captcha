@@ -4,6 +4,9 @@ Changelog
 1.0b2 - unreleased
 ------------------
 
+* Move to plone.app.discussion-captcha feature declaration to meta.zcml.
+  [timo]
+
 * Fix verify method for empty string input values. This is necessary for 
   plone.app.discussion 1.0b5 compatibility.
   [timo] 

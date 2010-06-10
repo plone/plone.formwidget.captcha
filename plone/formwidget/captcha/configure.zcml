@@ -11,6 +11,8 @@
 
     <include package=".browser" />
 
+    <include file="meta.zcml" />
+	
     <class class=".widget.CaptchaWidget">
         <require
             permission="zope.Public"
@@ -41,11 +43,6 @@
         for="Products.CMFPlone.interfaces.IPloneSiteRoot"
         provides="Products.GenericSetup.interfaces.EXTENSION"
         />
-
-    <!-- Declare that plone.formwidget.captcha provides a Captcha field that 
-         can be used by plone.app.discussion to add a Captcha field to comment 
-         forms. -->
-    <meta:provides feature="plone.app.discussion-captcha" />
 
     <!--
     example:
