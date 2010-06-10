@@ -104,6 +104,8 @@ class Captcha(BrowserView):
         return self._url('audio')
         
     def verify(self, input):
+        if not input:
+            return False
         result = False
         try:
             for word in self._generate_words():

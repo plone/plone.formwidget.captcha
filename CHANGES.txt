@@ -1,6 +1,13 @@
 Changelog
 =========
 
+1.0b2 - unreleased
+------------------
+
+* Fix verify method for empty string input values. This is necessary for 
+  plone.app.discussion 1.0b5 compatibility.
+  [timo] 
+
 1.0b1 - 2010-06-02
 ------------------
 
