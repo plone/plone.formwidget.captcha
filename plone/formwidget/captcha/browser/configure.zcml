@@ -8,6 +8,7 @@
       for="*"
       permission="zope.Public"
       provides=".interfaces.ICaptchaView"
+      allowed_attributes="image audio"
       class=".captcha.Captcha">
 
     <browser:page name="image" attribute="image" />

@@ -4,6 +4,10 @@ Changelog
 1.0b2 - unreleased
 ------------------
 
+* Specify allowed_attributes for the captcha view, so the image/audio pages
+  are accessible in Zope 2.12.9+.
+  [hannosch]
+
 * Move to plone.app.discussion-captcha feature declaration to meta.zcml.
   [timo]
 
