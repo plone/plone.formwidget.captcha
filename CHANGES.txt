@@ -4,6 +4,7 @@ Changelog
 1.0b3 - unreleased
 ------------------
 
+* Plone 4+ imports (removes warnings under Plone 4.1)
 
 1.0b2 - 2010-09-02
 ------------------
@@ -15,22 +16,22 @@ Changelog
 * Move to plone.app.discussion-captcha feature declaration to meta.zcml.
   [timo]
 
-* Fix verify method for empty string input values. This is necessary for 
+* Fix verify method for empty string input values. This is necessary for
   plone.app.discussion 1.0b5 compatibility.
-  [timo] 
+  [timo]
 
 1.0b1 - 2010-06-02
 ------------------
 
-* Fix _generate_words method. The "nowish" variable tells us in which 5 minutes 
-  slot we are in. Therefore we increment the time slot by 1, not by 5 (minutes).  
+* Fix _generate_words method. The "nowish" variable tells us in which 5 minutes
+  slot we are in. Therefore we increment the time slot by 1, not by 5 (minutes).
   [tbesluau]
 
-* Declare that plone.formwidget.captcha provides a Captcha field that can be 
+* Declare that plone.formwidget.captcha provides a Captcha field that can be
   used by plone.app.discussion to add a Captcha field to comment forms.
   [timo]
 
-         
+
 1.0a2 - 2010-01-28
 ------------------
 
