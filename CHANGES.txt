@@ -4,6 +4,9 @@ Changelog
 1.0b3 - unreleased
 ------------------
 
+* Use hashlib module by default.
+  [thomasdesvenain]
+
 * Zope 2.13 imports (removes warnings under Plone 4.1)
   [thomasdesvenain]
 
