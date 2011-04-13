@@ -2,7 +2,13 @@
 import os.path
 import random
 import re
-import sha
+try:
+    import hashlib
+    USE_HASHLIB = True
+except ImportError:
+    import sha
+    USE_HASHLIB = False
+
 import string
 import sys
 import time
@@ -54,7 +60,11 @@ class Captcha(BrowserView):
     def _generate_session(self):
         """Create a new session id"""
         if self._session_id is None:
-            id = sha.new(str(random.randrange(sys.maxint))).hexdigest()
+            if USE_HASHLIB:
+                id = hashlib.sha1(str(random.randrange(sys.maxint))).hexdigest()
+            else:
+                id = sha.new(str(random.randrange(sys.maxint))).hexdigest()
+
             self._session_id = id
             self._setcookie(id)
 
@@ -83,8 +93,12 @@ class Captcha(BrowserView):
         # we're in. Indeed, every second, int(time.time()) increments by 1, so
         # int(time.time() / 300) will increment by 1 every 5 minutes.
         secret = getUtility(IKeyManager).secret()
-        seeds = [sha.new(secret + session + str(nowish)).digest(),
-                 sha.new(secret + session + str(nowish - 1)).digest()]
+        if USE_HASHLIB:
+            seeds = [hashlib.sha1(secret + session + str(nowish)).digest(),
+                     hashlib.sha1(secret + session + str(nowish - 1)).digest()]
+        else:
+            seeds = [sha.new(secret + session + str(nowish)).digest(),
+                     sha.new(secret + session + str(nowish - 1)).digest()]
         # The line above generates a seed based on the "nowish" of 5 minutes ago.
 
         words = []
