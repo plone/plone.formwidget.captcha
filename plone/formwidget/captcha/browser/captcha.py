@@ -2,7 +2,7 @@
 import os.path
 import random
 import re
-
+import sha
 import string
 import sys
 import time
