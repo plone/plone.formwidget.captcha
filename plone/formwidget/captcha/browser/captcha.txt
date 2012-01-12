@@ -54,7 +54,7 @@ The verify method works case-insensitively:
 The words are valid for a 10 minute period, with a new word for the session every
 5 minutes. Thus, the word for the previous 5 minute period should still be valid:
 
-  >>> view.verify('YMFRQWT')
+  >>> view.verify('EXCXY74')
   True
 
 Verification will fail for both incorrect input and a missing cookie:
