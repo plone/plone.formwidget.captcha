@@ -1,8 +1,12 @@
+<html xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      i18n:domain="plone.formwidget.captcha">
+
 <div class="captchaImage"
      tal:content="structure view/captchaImage"></div>
 <div class="captchaAudio">
   <a href="" target="_blank"
-    tal:attributes="href view/captchaAudio">Listen to audio for this captcha</a>
+    tal:attributes="href view/captchaAudio" i18n:translate="">Listen to audio for this captcha</a>
 </div>
 <input id="form-widgets-captcha"
   type="text"
@@ -14,3 +18,5 @@
                   title view/title;
                   name string:${view/name}"
                   />
+
+</html>
