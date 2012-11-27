@@ -4,6 +4,9 @@ Changelog
 1.0.1 (2012-01-26)
 ------------------
 
+* Add i18n option and translate to dutch
+  [maartenkling]
+
 * Use widgets view class attributes in the template.
   [romanofski]
 
