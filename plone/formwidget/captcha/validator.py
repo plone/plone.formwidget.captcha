@@ -9,11 +9,11 @@ from zope.component import getMultiAdapter, provideAdapter
 from zope.schema import ValidationError
 
 from plone.formwidget.captcha import CaptchaMessageFactory as _
-from zope.i18n import translate
 
 
 class WrongCaptchaCode(ValidationError):
     __doc__ = _(u"The code you entered was wrong, please enter the new one.")
+
 
 class CaptchaValidator(validator.SimpleFieldValidator):
 
