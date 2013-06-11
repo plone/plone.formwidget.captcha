@@ -8,7 +8,7 @@ testing_zcml_path = os.path.join(os.path.dirname(__file__), 'testing.zcml')
 testing_zcml_layer = ZCMLLayer(testing_zcml_path, 'plone.formwidget.captcha', 'testing_zcml_layer')
 
 def test_suite():
-    readme_txt = doctest.DocFileSuite('README.txt')
+    readme_txt = doctest.DocFileSuite('README.rst')
     readme_txt.layer = testing_zcml_layer
 
     return unittest.TestSuite([

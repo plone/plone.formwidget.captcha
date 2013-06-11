@@ -5,7 +5,7 @@ version = '1.0.1'
 setup(name='plone.formwidget.captcha',
       version=version,
       description="Captcha widget for Plone.",
-      long_description=open("README.txt").read() + "\n" +
+      long_description=open("README.rst").read() + "\n" +
                        open("CHANGES.txt").read(),
       # Get more strings from
       # http://pypi.python.org/pypi?:action=list_classifiers
