@@ -1,6 +1,21 @@
 Changelog
 =========
 
+1.0.2 (unreleased)
+------------------
+
+* Added Spanish translate
+  [macagua]
+
+* Renamed README file for the package
+  [macagua]
+
+* Added git ignore file
+  [macagua]
+  
+* Added more metadata strings for the package
+  [macagua]
+
 1.0.1 (2012-01-26)
 ------------------
 
