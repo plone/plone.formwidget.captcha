@@ -1,6 +1,13 @@
 Changelog
 =========
 
+1.0.2 (unreleased)
+------------------
+
+* Add Brazilian Portuguese and Spanish translations.
+  [hvelarde]
+
+
 1.0.1 (2012-01-26)
 ------------------
 
@@ -20,6 +27,7 @@ Changelog
 * Zope 2.13 imports (removes warnings under Plone 4.1)
   [thomasdesvenain]
 
+
 1.0b2 - 2010-09-02
 ------------------
 
@@ -33,6 +41,7 @@ Changelog
 * Fix verify method for empty string input values. This is necessary for
   plone.app.discussion 1.0b5 compatibility.
   [timo]
+
 
 1.0b1 - 2010-06-02
 ------------------
@@ -51,6 +60,7 @@ Changelog
 
 * Updated package metadata and marked this as a Plone add-on.
   [hannosch]
+
 
 1.0a1 - 2009-08-28
 ------------------
