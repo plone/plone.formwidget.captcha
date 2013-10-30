@@ -1,6 +1,12 @@
 Introduction
 ============
 
+.. image:: https://secure.travis-ci.org/plone/plone.formwidget.captcha.png?branch=master
+    :target: http://travis-ci.org/plone/plone.formwidget.captcha
+
+.. image:: https://coveralls.io/repos/plone/plone.formwidget.captcha/badge.png?branch=master
+    :target: https://coveralls.io/r/plone/plone.formwidget.captcha
+
 plone.formwidget.captcha is a z3c.form captcha widget for use with Plone. It is
 a z3c.form re-implementation of the `collective.captcha` package written by
 Martijn Pieters.
