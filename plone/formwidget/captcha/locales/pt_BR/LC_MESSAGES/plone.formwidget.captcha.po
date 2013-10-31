@@ -20,5 +20,5 @@ msgstr "Ouça o áudio para este captcha"
 
 #: ./validator.py:16
 msgid "The code you entered was wrong, please enter the new one."
-msgstr "O código que você digitou estava errado, deve inserir o novo."
+msgstr "Você não digitou o código corretamente, por favor digite o novo código."
 
