@@ -4,7 +4,8 @@ Changelog
 1.0.3 (unreleased)
 ------------------
 
-- Nothing changed yet.
+* Add Czech translation
+  [naro]
 
 
 1.0.2 (2013-10-31)
