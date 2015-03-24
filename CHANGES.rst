@@ -4,6 +4,8 @@ Changelog
 1.0.3 (unreleased)
 ------------------
 
+* Add empty ``plone.pot`` file for ``rebuild_i18n.sh`` script to work.
+  [davidjb]
 * Add Czech translation
   [naro]
 
