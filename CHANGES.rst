@@ -1,7 +1,7 @@
 Changelog
 =========
 
-1.0.3 (unreleased)
+1.0.3 (2016-03-04)
 ------------------
 
 * Add empty ``plone.pot`` file for ``rebuild_i18n.sh`` script to work.
