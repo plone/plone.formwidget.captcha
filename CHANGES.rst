@@ -6,8 +6,12 @@ Changelog
 
 * Add empty ``plone.pot`` file for ``rebuild_i18n.sh`` script to work.
   [davidjb]
+
 * Add Czech translation
   [naro]
+
+* Add French translation
+  [cedricmessiant]
 
 
 1.0.2 (2013-10-31)
